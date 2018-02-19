@@ -4,7 +4,7 @@
   "description": "Product Data Table",
   "main": "index.jsx",
   "scripts": {
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --port 7007",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Pahan Sarathchandra",
