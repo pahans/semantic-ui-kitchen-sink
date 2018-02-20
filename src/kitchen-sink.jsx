@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Divider, Grid, Header, Image, Menu, Segment, Modal } from 'semantic-ui-react';
+import { Button, Container, Divider, Grid, Header, Image, Menu, Segment, Modal, Tab } from 'semantic-ui-react';
 
 class KitchenSink extends React.Component {
 
@@ -216,7 +216,7 @@ class KitchenSink extends React.Component {
                 <Header as='h2' dividing>Modal</Header>
                 <Grid columns='equal'>
                     <Grid.Column> 
-                    <Modal trigger={<Button>Show Modal</Button>}>
+                    <Modal trigger={<Button>Show Modal</Button>} inverted>
                         <Modal.Header>Select a Photo</Modal.Header>
                         <Modal.Content image>
                         <Image wrapped size='medium' src='/assets/images/avatar/large/rachel.png' />
@@ -227,6 +227,18 @@ class KitchenSink extends React.Component {
                         </Modal.Description>
                         </Modal.Content>
                     </Modal>
+                    </Grid.Column>
+                </Grid>
+                <Header as='h2' dividing>Left Panel</Header>
+                <Grid columns='equal'>
+                    <Grid.Column> 
+                        <Tab menu={{ fluid: true, vertical: true, tabular: 'right' }} 
+                            panes={[
+                                { menuItem: 'Tab 1', render: () => <Tab.Pane>Tab 1 Content</Tab.Pane> },
+                                { menuItem: 'Tab 2', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
+                                { menuItem: 'Tab 3', render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> },
+                              ]} 
+                        />
                     </Grid.Column>
                 </Grid>
             </Container>
