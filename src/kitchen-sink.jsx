@@ -1,5 +1,18 @@
 import React from 'react';
-import { Button, Container, Divider, Grid, Header, Image, Menu, Segment, Modal, Tab } from 'semantic-ui-react';
+import {
+    Button,
+    Container,
+    Divider,
+    Grid,
+    Header,
+    Image,
+    Menu,
+    Segment,
+    Modal,
+    Tab,
+    Form,
+    Dimmer
+} from 'semantic-ui-react';
 
 class KitchenSink extends React.Component {
 
@@ -215,30 +228,95 @@ class KitchenSink extends React.Component {
                 </Grid>
                 <Header as='h2' dividing>Modal</Header>
                 <Grid columns='equal'>
-                    <Grid.Column> 
-                    <Modal trigger={<Button>Show Modal</Button>} inverted>
-                        <Modal.Header>Select a Photo</Modal.Header>
-                        <Modal.Content image>
-                        <Image wrapped size='medium' src='/assets/images/avatar/large/rachel.png' />
-                        <Modal.Description>
-                            <Header>Default Profile Image</Header>
-                            <p>We've found the following gravatar image associated with your e-mail address.</p>
-                            <p>Is it okay to use this photo?</p>
-                        </Modal.Description>
-                        </Modal.Content>
-                    </Modal>
+                    <Grid.Column>
+                        <Modal trigger={<Button>Show Modal</Button>} inverted>
+                            <Modal.Header>Select a Photo</Modal.Header>
+                            <Modal.Content image>
+                                <Image wrapped size='medium' src='/assets/images/avatar/large/rachel.png' />
+                                <Modal.Description>
+                                    <Header>Default Profile Image</Header>
+                                    <p>We've found the following gravatar image associated with your e-mail address.</p>
+                                    <p>Is it okay to use this photo?</p>
+                                </Modal.Description>
+                            </Modal.Content>
+                        </Modal>
                     </Grid.Column>
                 </Grid>
                 <Header as='h2' dividing>Left Panel</Header>
                 <Grid columns='equal'>
-                    <Grid.Column> 
-                        <Tab menu={{ fluid: true, vertical: true, tabular: 'right' }} 
+                    <Grid.Column>
+                        <Tab menu={{ fluid: true, vertical: true, tabular: 'right' }}
                             panes={[
                                 { menuItem: 'Tab 1', render: () => <Tab.Pane>Tab 1 Content</Tab.Pane> },
                                 { menuItem: 'Tab 2', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
                                 { menuItem: 'Tab 3', render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> },
-                              ]} 
+                            ]}
                         />
+                    </Grid.Column>
+                </Grid>
+
+                <Header as='h2' dividing>Forms</Header>
+                <Grid columns='equal'>
+                    <Grid.Column>
+                        <Form>
+                            <Form.Group widths='equal'>
+                                <Form.Input fluid label='First name' placeholder='First name' />
+                                <Form.Input fluid label='Last name' placeholder='Last name' />
+                                <Form.Select fluid label='Gender' options={[
+                                    { key: 'm', text: 'Male', value: 'male' },
+                                    { key: 'f', text: 'Female', value: 'female' },
+                                ]} placeholder='Gender' />
+                            </Form.Group>
+                            <Form.Group inline>
+                                <label>Size</label>
+                                <Form.Radio label='Small' value='sm' checked onChange={this.handleChange} />
+                                <Form.Radio label='Medium' value='md' checked onChange={this.handleChange} />
+                                <Form.Radio label='Large' value='lg' onChange={this.handleChange} />
+                            </Form.Group>
+                            <Form.TextArea label='About' placeholder='Tell us more about you...' />
+                            <Form.Checkbox label='I agree to the Terms and Conditions' />
+                            <Form.Button>Submit</Form.Button>
+                        </Form>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <Form>
+                            <Form.Group widths='equal'>
+                                <Form.Input fluid label='First name' placeholder='First name' error />
+                                <Form.Input fluid label='Last name' placeholder='Last name' />
+                            </Form.Group>
+                            <Form.Select options={[
+                                { key: 'm', text: 'Male', value: 'male' },
+                                { key: 'f', text: 'Female', value: 'female' },
+                            ]} placeholder='Gender' error />
+                            <Form.Checkbox label='I agree to the Terms and Conditions' error />
+                        </Form>
+                    </Grid.Column>
+                </Grid>
+
+                <Header as='h2' dividing>Inverted form</Header>
+                <Grid columns='equal'>
+                    <Grid.Column>
+                        <Segment inverted>
+                            <Form inverted>
+                                <Form.Group widths='equal'>
+                                    <Form.Input fluid label='First name' placeholder='First name' />
+                                    <Form.Input fluid label='Last name' placeholder='Last name' />
+                                    <Form.Select fluid label='Gender' options={[
+                                        { key: 'm', text: 'Male', value: 'male' },
+                                        { key: 'f', text: 'Female', value: 'female' },
+                                    ]} placeholder='Gender' />
+                                </Form.Group>
+                                <Form.Group inline>
+                                    <label>Size</label>
+                                    <Form.Radio label='Small' value='sm' checked onChange={this.handleChange} />
+                                    <Form.Radio label='Medium' value='md' checked onChange={this.handleChange} />
+                                    <Form.Radio label='Large' value='lg' onChange={this.handleChange} />
+                                </Form.Group>
+                                <Form.TextArea label='About' placeholder='Tell us more about you...' />
+                                <Form.Checkbox label='I agree to the Terms and Conditions' />
+                                <Form.Button>Submit</Form.Button>
+                            </Form>
+                        </Segment>
                     </Grid.Column>
                 </Grid>
             </Container>
