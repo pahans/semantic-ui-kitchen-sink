@@ -206,6 +206,11 @@ class KitchenSink extends React.Component {
 
                         <Divider />
 
+                        <Button primary size='massive' circular icon='add' />
+                        <Button secondary size='small' circular icon='add' />
+
+                        <Divider />
+
                         <Button color='yellow' style={{ marginBottom: '1em' }}>Yellow</Button>
                         <Button color='orange' style={{ marginBottom: '1em' }}>Orange</Button>
                         <Button color='green' style={{ marginBottom: '1em' }}>Green</Button>
