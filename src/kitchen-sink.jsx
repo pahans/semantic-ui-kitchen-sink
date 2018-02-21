@@ -11,7 +11,8 @@ import {
     Modal,
     Tab,
     Form,
-    Dimmer
+    Dimmer,
+    Icon
 } from 'semantic-ui-react';
 
 class KitchenSink extends React.Component {
@@ -234,17 +235,43 @@ class KitchenSink extends React.Component {
                 <Header as='h2' dividing>Modal</Header>
                 <Grid columns='equal'>
                     <Grid.Column>
-                        <Modal trigger={<Button>Show Modal</Button>} inverted>
+                        <Modal
+                            trigger={<Button>Show Modal</Button>}
+                            className='inverted'
+                        >
                             <Modal.Header>Select a Photo</Modal.Header>
-                            <Modal.Content image>
-                                <Image wrapped size='medium' src='/assets/images/avatar/large/rachel.png' />
-                                <Modal.Description>
-                                    <Header>Default Profile Image</Header>
-                                    <p>We've found the following gravatar image associated with your e-mail address.</p>
-                                    <p>Is it okay to use this photo?</p>
-                                </Modal.Description>
+                            <Modal.Content>
+                                <Segment inverted>
+                                    <Form inverted>
+                                        <Form.Group widths='equal'>
+                                            <Form.Input fluid label='First name' placeholder='First name' />
+                                            <Form.Input fluid label='Last name' placeholder='Last name' />
+                                            <Form.Select fluid label='Gender' options={[
+                                                { key: 'm', text: 'Male', value: 'male' },
+                                                { key: 'f', text: 'Female', value: 'female' },
+                                            ]} placeholder='Gender' />
+                                        </Form.Group>
+                                        <Form.Group inline>
+                                            <label>Size</label>
+                                            <Form.Radio label='Small' value='sm' checked onChange={this.handleChange} />
+                                            <Form.Radio label='Medium' value='md' checked onChange={this.handleChange} />
+                                            <Form.Radio label='Large' value='lg' onChange={this.handleChange} />
+                                        </Form.Group>
+                                        <Form.TextArea label='About' placeholder='Tell us more about you...' />
+                                        <Form.Checkbox label='I agree to the Terms and Conditions' />
+                                        <Form.Button>Submit</Form.Button>
+                                    </Form>
+
+                                    <Modal.Actions>
+                                        <Button onClick={this.handleClose} primary>
+                                            <Icon name='checkmark' /> Got it
+                                    </Button>
+                                    </Modal.Actions>
+                                </Segment>
                             </Modal.Content>
+
                         </Modal>
+
                     </Grid.Column>
                 </Grid>
                 <Header as='h2' dividing>Left Panel</Header>
