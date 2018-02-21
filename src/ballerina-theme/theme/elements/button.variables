@@ -1,3 +1,14 @@
 /*******************************
     User Variable Overrides
 *******************************/
+
+@backgroundColor    : @defaultColor;
+@textColor          : @gray-100;
+@fontWeight         : 400;
+/*-------------------
+      Variations
+--------------------*/
+
+@borderRadius       :0;
+
+@secondaryTextColor : @gray-700;
